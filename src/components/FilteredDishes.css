@@ -1,0 +1,57 @@
+.filtered-dishes h2{
+    text-align: center;
+}
+.filtered-dishes p{
+    text-align: center;
+    max-width: 680px;
+    margin: auto;
+}
+.filtered-dishes ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: center;
+}
+.filtered-dishes ul li{
+    background-color: #ffb902;
+    color: rgb(105, 103, 103);
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all ease .3s;
+    font-weight: bold;
+
+
+}
+.filtered-dishes ul li:active{
+    background-color: black;
+
+}
+.filtered-dishes ul li:focus{
+    background-color: black;
+    color: white;
+
+}
+.filtered-dishes ul li:hover{
+    background-color: black;
+    color: white;
+}
+/* .filtered-dishes ul li.active{
+    background-color: black;
+} */
+.filtered-dishes ul li.active{
+    background-color: black;
+    color: white;
+}
+
+
+
+.filtered-dishes-results ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}

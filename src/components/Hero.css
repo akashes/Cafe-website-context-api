@@ -1,0 +1,47 @@
+.hero{
+    position: relative;
+    height: 55vh;
+    overflow: hidden;
+    
+    /* background: linear-gradient(to bottom, black 20%, gray 50%, white 80%); */
+
+}
+.hero::after{
+
+    background-image: linear-gradient(to right, #ff0000, #0000ff);
+
+}
+
+.hero img{
+    width: 100vw;
+    object-fit: cover;
+    opacity: .9;
+
+}
+.hero-content{
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 400px;
+    
+}
+.hero-content h1{
+    margin-bottom: 18px;
+    font-size: 38px;
+    font-weight: 700;
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+
+
+
+}
+ .hero-content p{
+    text-shadow: 3px 3px 10px rgb(69, 69, 69);
+    color: black;
+
+}
+.hero-content p{
+    color: whitesmoke;
+}
+
+

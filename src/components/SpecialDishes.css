@@ -1,0 +1,18 @@
+  /* special dishes css */
+
+  .special-dishes-content{
+    /* max-width: 1000px; */
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.special-dishes-list ul{
+display: flex;
+flex-wrap: wrap;
+gap: 25px;
+
+}
+.spcl-d-list{
+    width: 25%;
+}
