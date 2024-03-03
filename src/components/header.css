@@ -2,7 +2,7 @@ header{
     position: absolute;
     width: 100%;
     top: 0;
-    z-index: 9999;
-    background-color: rgba(139, 117, 57, 0.932);
-    color:#473c20 ;
+    z-index: 100;
+    background-color: rgba(139, 117, 57, 0.499);
+    color:white ;
 }

@@ -3,8 +3,13 @@ import './FilteredDishes.css'
 import { Card } from 'react-bootstrap'
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import Pagination from './Pagination';
+import { MenuContext } from './Menus';
+import { useContext } from 'react';
 
-function FilteredDishes({categoryData,allMenus,singleDish}) {
+function FilteredDishes({categoryData,singleDish}) {
+
+    let allMenus = useContext(MenuContext)
+
     const[filteredDishesCategory,setFilteredDishesCategory]=useState([])
     const[showEmptyDishesStatus,setShowEmptyDishesStatus]=useState(false)
     const[hideDefaultDishes,setHideDefaultDishes]=useState(false)
@@ -79,7 +84,7 @@ function FilteredDishes({categoryData,allMenus,singleDish}) {
   <>
     <div className='filtered-dishes'>
         <div className="container">
-            <h2>Choose Your Dishes</h2>
+            <h2 className='fw-bold'>Choose Your Dishes</h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, natus. Atque unde temporibus alias, facere quisquam praesentium harum dolor laudantium?</p>
         </div>
         <div className="filtered-dishes">

@@ -4,9 +4,14 @@ import Hero from './Hero'
 import SpecialDishes from './SpecialDishes'
 import FilteredDishes from './FilteredDishes'
 import Header from './Header'
+import { createContext } from 'react'
+
+
+export const MenuContext = createContext() 
 
 
 function Menus() {
+
 
     let [menu,setMenu]=useState([])
     const[categoryData,setCategoryData]= useState([])
@@ -16,13 +21,13 @@ function Menus() {
 
     const API_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c'
 
+
     const fetchOneDish=async()=>{
       const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=beef')
       const result = await response.json()  
       // console.log(result.meals);  
       setSingleDish(result.meals)  
     } 
-
 
     const fetchCategories=async()=>{
       const result =await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -58,10 +63,13 @@ function Menus() {
 
   return (
     <div>
+      <MenuContext.Provider value={menu}>
+
+      
       <Header/>
         <Hero/>
         {
-          !loading ?          <SpecialDishes specialMenu={menu} />   :
+          !loading ?          <SpecialDishes />   :
            <h1 className=" m-5 mt-5 p-5 text-center text-danger fw-bold">Loading...</h1>
            
 
@@ -70,12 +78,15 @@ function Menus() {
 
         }
         {
-          !loading ?       <FilteredDishes  categoryData={categoryData} allMenus={menu} singleDish={singleDish} /> :             <h1 className=" m-5 mt-5 p-5 text-center text-danger fw-bold">Loading...</h1>
+          !loading ?       <FilteredDishes
+          categoryData={categoryData}
+          //  allMenus={menu}
+            singleDish={singleDish} /> :             <h1 className=" m-5 mt-5 p-5 text-center text-danger fw-bold">Loading...</h1>
 
 
         }
       
-      
+      </MenuContext.Provider>
     </div>
   )
 }

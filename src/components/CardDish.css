@@ -1,0 +1,9 @@
+.special-dishes-list-ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    
+    }
+    .spcl-d-list{
+        width: 25%;
+    }
