@@ -8,6 +8,9 @@ import { useContext } from 'react';
 
 function FilteredDishes({categoryData,singleDish}) {
 
+
+    
+
     let allMenus = useContext(MenuContext)
 
     const[filteredDishesCategory,setFilteredDishesCategory]=useState([])

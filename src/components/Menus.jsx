@@ -17,9 +17,10 @@ function Menus() {
     const[categoryData,setCategoryData]= useState([])
     const[singleDish,setSingleDish]=useState([])
     const[loading,setLoading]=useState(false)
-    console.log(categoryData);
+    // console.log(categoryData);
 
     const API_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c'
+
 
 
     const fetchOneDish=async()=>{

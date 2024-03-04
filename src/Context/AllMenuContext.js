@@ -1,14 +1,15 @@
 import { createContext } from "react";
 
-const AllMenuContext = createContext()
+export const AllMenuContext = createContext()
 
-const AllMenus=({children})=>{
+
+
+const MenuContext=()=>{
     return(
-        <AllMenuContext.Provider value={}>
-            {children}
+        <AllMenuContext.Provider value={'akash'}>
 
         </AllMenuContext.Provider>
-
     )
 }
-export default AllMenus
+
+export default MenuContext
