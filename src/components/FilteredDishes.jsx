@@ -6,12 +6,28 @@ import Pagination from './Pagination';
 import { MenuContext } from './Menus';
 import { useContext } from 'react';
 
-function FilteredDishes({categoryData,singleDish}) {
+function FilteredDishes({allMenus}) {
+
+    console.log(allMenus);
+    const[categoryData,setCategoryData]= useState([])
+    const[singleDish,setSingleDish]=useState([])
+
+    const fetchOneDish=async()=>{
+        const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=beef')
+        const result = await response.json()  
+        setSingleDish(result.meals)  
+      } 
+  
+      const fetchCategories=async()=>{
+        const result =await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+        const response = await result.json()
+        setCategoryData(response.categories)
+      }
 
 
     
 
-    let allMenus = useContext(MenuContext)
+    // let allMenus = useContext(MenuContext)
 
     const[filteredDishesCategory,setFilteredDishesCategory]=useState([])
     const[showEmptyDishesStatus,setShowEmptyDishesStatus]=useState(false)
@@ -26,6 +42,7 @@ function FilteredDishes({categoryData,singleDish}) {
     let indexOfLastDish = currentPage * itemsPerPage
     //1 x 4 = 4
     //2 x 4 =8
+
     //3 x 4 = 12
 
     let indexOfFirstDish = indexOfLastDish - itemsPerPage
@@ -81,6 +98,10 @@ function FilteredDishes({categoryData,singleDish}) {
      }
 
     }
+    useEffect(()=>{
+fetchOneDish()
+fetchCategories()
+    },[])
  
     
   return (

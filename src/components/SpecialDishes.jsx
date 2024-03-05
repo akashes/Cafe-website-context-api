@@ -5,8 +5,15 @@ import CardDish from './CardDish';
 import Popup from './Popup';
 import { useContext } from 'react';
 import { MenuContext } from './Menus';
+import AddToCart from './AddToCart';
 
 function SpecialDishes() {
+  const[addToCartItem,setAddToCartItem]=useState([{}])
+
+  const handleAddToCart=({strMeal,strMealThumb})=>{
+    console.log('add to cart now',strMeal,strMealThumb);
+    setAddToCartItem({strMeal,strMealThumb})
+  }
 
   const menu =useContext(MenuContext)
   console.log(menu);
@@ -51,10 +58,11 @@ const maxSpecialDishes = 8
 
   return (
    <>{
-    showPopup && <Popup popupData={popupData} hidePopup={hidePopupHandler} />
+    showPopup && <Popup handleAddToCart={handleAddToCart} popupData={popupData} hidePopup={hidePopupHandler} />
    }
     <section className='special-dishes'>
         <div className="container">
+          {/* <AddToCart addToCartItem={addToCartItem} /> */}
             <div className="special-dishes-content">
                 <h2 className='fw-bold'>Our Special Dishes</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto vel deserunt? Deleniti, eaque incidunt.</p>

@@ -4,12 +4,12 @@ export const AllMenuContext = createContext()
 
 
 
-const MenuContext=()=>{
+const AllMenuContextProvider=({children})=>{
     return(
-        <AllMenuContext.Provider value={'akash'}>
-
+        <AllMenuContext.Provider value={{"name":"akash"}}>
+{children}
         </AllMenuContext.Provider>
     )
 }
 
-export default MenuContext
+export default AllMenuContextProvider
