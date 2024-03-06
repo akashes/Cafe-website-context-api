@@ -1,23 +1,36 @@
-// import React from 'react'
-// import './AddToCart.css'
+import React, { useContext } from 'react'
+import './AddToCart.css'
+import { StateContext } from '../Context/AppProvider';
 
-// function AddToCart({addToCartItem}) {
-//     console.log('inside cart herer',addToCartItem);
-//   return (
-//     // {
-//     //    addToCartItem.map(ele=>(
-//     //         <div className='add-to-cart-wrapper'>
-//     //         <div className="add-to-cart-item">
-//     //             <img  src={addToCartItem.strMealThumb} alt="" />
-//     //             <h6>Item name</h6>
+function AddToCart({addToCartItem}) {
+ const cartData =  useContext(StateContext)
+ console.log(cartData);
+
+
+  
+
+
+  return (
+                <div className='add-to-cart-wrapper scrollbar-style'>
+      
+            <div className="add-to-cart-item">
+                <img  src={cartData.cartItems[0]} alt="" />
+                <h6>{cartData.cartItems[1]}</h6>
     
-//     //         </div>
-//     //     </div>
-//     //     ) 
-//     // }
-//     <p>hai</p>
-   
-//   )
-// }
+            </div>
+      
+    
 
-// export default AddToCart
+
+</div>
+
+
+
+  )
+  
+
+    
+  }
+
+
+export default AddToCart

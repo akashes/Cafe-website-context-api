@@ -4,10 +4,11 @@ import Hero from './Hero'
 import SpecialDishes from './SpecialDishes'
 import FilteredDishes from './FilteredDishes'
 import Header from './Header'
-import { createContext } from 'react'
+import { Routes,Route } from 'react-router-dom'
+// import { createContext } from 'react'
 
 
-export const MenuContext = createContext() 
+// export const MenuContext = createContext() 
 
 
 function Menus() {
@@ -44,11 +45,12 @@ function Menus() {
 
   return (
     <div>
-      <MenuContext.Provider value={menu}>
+      {/* <MenuContext.Provider value={menu}> */}
 
       
-      <Header/>
-        <Hero/>
+      {/* <Header/> */}
+    
+        {/* <Hero/> */}
         {
           !loading ?          <SpecialDishes />   :
            <h1 className=" m-5 mt-5 p-5 text-center text-danger fw-bold">Loading...</h1>
@@ -69,7 +71,7 @@ function Menus() {
 
         }
       
-      </MenuContext.Provider>
+      {/* </MenuContext.Provider> */}
     </div>
   )
 }

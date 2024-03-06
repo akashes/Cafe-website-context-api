@@ -3,19 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AllMenus from './Context/AllMenuContext';
-import AllMenuContextProvider from './Context/AllMenuContext';
+import {AllMenuContextProvider} from './Context/AllMenuContext';
+import {BrowserRouter} from 'react-router-dom'
+import { AppProvider } from './Context/AppProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AllMenuContextProvider>
-
-  <React.StrictMode>
+<AppProvider>
+<AllMenuContextProvider>
+    <BrowserRouter>
+    <React.StrictMode>
     <App />
 
 
   </React.StrictMode>
+    </BrowserRouter>
+
+
   </AllMenuContextProvider>
+</AppProvider>
 
 );
 

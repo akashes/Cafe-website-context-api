@@ -4,19 +4,28 @@ import { Card,Button } from 'react-bootstrap';
 import CardDish from './CardDish';
 import Popup from './Popup';
 import { useContext } from 'react';
-import { MenuContext } from './Menus';
 import AddToCart from './AddToCart';
+import { MenuContext } from '../Context/AllMenuContext';
 
 function SpecialDishes() {
-  const[addToCartItem,setAddToCartItem]=useState([{}])
+  const[addToCartItem,setAddToCartItem]=useState([])
 
   const handleAddToCart=({strMeal,strMealThumb})=>{
     console.log('add to cart now',strMeal,strMealThumb);
-    setAddToCartItem({strMeal,strMealThumb})
+    setAddToCartItem(
+      [
+        ...addToCartItem,
+        {
+          "img":strMealThumb,
+          "title":strMeal
+        }
+      ]
+    )
+
   }
 
   const menu =useContext(MenuContext)
-  console.log(menu);
+  console.log(menu); 
 
   const[showPopup,setShowPopup]=useState(false)
   const[popupData,setPopupData]=useState({})
@@ -62,7 +71,11 @@ const maxSpecialDishes = 8
    }
     <section className='special-dishes'>
         <div className="container">
-          {/* <AddToCart addToCartItem={addToCartItem} /> */}
+          {
+            // addToCartItem.length>0 &&  
+                     <AddToCart addToCartItem={addToCartItem} />
+
+          }
             <div className="special-dishes-content">
                 <h2 className='fw-bold'>Our Special Dishes</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto vel deserunt? Deleniti, eaque incidunt.</p>

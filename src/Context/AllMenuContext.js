@@ -1,15 +1,27 @@
-import { createContext } from "react";
+import { createContext, useEffect,useState } from "react";
+import axios from "axios";
 
-export const AllMenuContext = createContext()
+export const MenuContext = createContext()
 
 
 
-const AllMenuContextProvider=({children})=>{
+export const AllMenuContextProvider=({children})=>{
+    let [menu,setMenu]=useState([])
+
+    const API_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c'
+
+    const fetchMenuData=async()=>{
+            const res=await axios.get(API_URL)
+            console.log(res.data.meals);
+            setMenu(res.data.meals)
+    }
+    useEffect(()=>{
+fetchMenuData()
+    },[])
     return(
-        <AllMenuContext.Provider value={{"name":"akash"}}>
-{children}
-        </AllMenuContext.Provider>
+        <MenuContext.Provider value={menu}>
+            {children}
+        </MenuContext.Provider>
     )
 }
 
-export default AllMenuContextProvider

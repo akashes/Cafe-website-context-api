@@ -2,10 +2,13 @@ import React from 'react'
 import './Popup.css'
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useContext } from 'react';
-import { AllMenuContext } from '../Context/AllMenuContext';
+import { MenuContext } from '../Context/AllMenuContext';
+import { DispatchContext } from '../Context/AppProvider';
 
 function Popup({hidePopup,popupData,handleAddToCart}) {
-  const resultVal = useContext(AllMenuContext)
+  const resultVal = useContext(MenuContext)
+  const dispatch = useContext(DispatchContext)
+  console.log('dispatch context is ',dispatch);
   console.log('context value is ',resultVal);
   const nos=10
   const ingredients =[] 
@@ -44,7 +47,14 @@ function Popup({hidePopup,popupData,handleAddToCart}) {
               }
                
             </ul>
-            <button onClick={()=>handleAddToCart(popupData)} className='popup-button'>Order now</button>
+            <button 
+            // onClick={()=>handleAddToCart(popupData)}
+            onClick={()=>dispatch({type:"add_to_cart",
+                                  payload:{
+                                    title:popupData.strMeal,
+                                    img:popupData.strMealThumb
+                                  }})}
+             className='popup-button'>Order now</button>
             <CancelIcon onClick={hidePopup} className='popup-close fs-1' />
 
         </div>
