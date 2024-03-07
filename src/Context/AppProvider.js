@@ -13,11 +13,17 @@ const AppProvider =({children})=>{
     const reducer=(state,action)=>{
         console.log('state is ',state);
         console.log('action is ',action);
-        switch(action.type){
+        switch(action.type){ 
             case "add_to_cart":
                 return {...state,cartItems:[...state.cartItems,action.payload,
                     // action.payload
                 ]}
+                case "remove_from_cart":
+                   
+                    return{
+                        ...state,cartItems:state.cartItems.filter(item=>item.title !== action.payload.title)
+                    }
+                    
             default:
                 return state
 
