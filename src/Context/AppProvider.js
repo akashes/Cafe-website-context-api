@@ -15,7 +15,9 @@ const AppProvider =({children})=>{
         console.log('action is ',action);
         switch(action.type){
             case "add_to_cart":
-                return {...state,cartItems:[action.payload.img,action.payload.title]}
+                return {...state,cartItems:[...state.cartItems,action.payload,
+                    // action.payload
+                ]}
             default:
                 return state
 

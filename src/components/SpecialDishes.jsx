@@ -6,9 +6,11 @@ import Popup from './Popup';
 import { useContext } from 'react';
 import AddToCart from './AddToCart';
 import { MenuContext } from '../Context/AllMenuContext';
+import { StateContext } from '../Context/AppProvider';
 
 function SpecialDishes() {
   const[addToCartItem,setAddToCartItem]=useState([])
+  const cartState = useContext(StateContext)
 
   const handleAddToCart=({strMeal,strMealThumb})=>{
     console.log('add to cart now',strMeal,strMealThumb);
@@ -73,6 +75,7 @@ const maxSpecialDishes = 8
         <div className="container">
           {
             // addToCartItem.length>0 &&  
+            cartState.cartItems.length>0 &&
                      <AddToCart addToCartItem={addToCartItem} />
 
           }
